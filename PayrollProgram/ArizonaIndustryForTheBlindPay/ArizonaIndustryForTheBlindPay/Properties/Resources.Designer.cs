@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArizonaIndustryForTheBlindPayroll.Properties
+namespace ArizonaIndustryForTheBlindPay.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace ArizonaIndustryForTheBlindPayroll.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArizonaIndustryForTheBlindPayroll.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArizonaIndustryForTheBlindPay.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

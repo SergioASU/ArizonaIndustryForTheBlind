@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62A26733-97E9-4B37-A300-CCDCEEAEE422}</ProjectGuid>
+    <ProjectGuid>{B013A152-12A7-4E8C-993D-B26F1CA7ADB9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ArizonaIndustryForTheBlindPayroll</RootNamespace>
-    <AssemblyName>ArizonaIndustryForTheBlindPayroll</AssemblyName>
+    <RootNamespace>ArizonaIndustryForTheBlindPay</RootNamespace>
+    <AssemblyName>ArizonaIndustryForTheBlindPay</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,18 +46,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChooseName.cs" />
-    <Compile Include="HoursWorked.cs" />
-    <Compile Include="PayPeriod.cs" />
-    <Compile Include="PayrollForm.cs">
+    <Compile Include="PayRollForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PayrollForm.Designer.cs">
-      <DependentUpon>PayrollForm.cs</DependentUpon>
+    <Compile Include="PayRollForm.Designer.cs">
+      <DependentUpon>PayRollForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoursWorked.cs" />
+    <Compile Include="PayPeriod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PayrollForm.resx">
-      <DependentUpon>PayrollForm.cs</DependentUpon>
+    <EmbeddedResource Include="PayRollForm.resx">
+      <DependentUpon>PayRollForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

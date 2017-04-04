@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArizonaIndustryForTheBlindPayroll
+namespace ArizonaIndustryForTheBlindPay
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace ArizonaIndustryForTheBlindPayroll
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PayrollForm());
+            Application.Run(new PayRollForm());
         }
     }
 }

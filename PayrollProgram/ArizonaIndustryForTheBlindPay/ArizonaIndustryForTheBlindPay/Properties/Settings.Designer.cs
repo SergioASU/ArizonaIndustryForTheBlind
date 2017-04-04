@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArizonaIndustryForTheBlindPayroll.Properties
+namespace ArizonaIndustryForTheBlindPay.Properties
 {
 
 
