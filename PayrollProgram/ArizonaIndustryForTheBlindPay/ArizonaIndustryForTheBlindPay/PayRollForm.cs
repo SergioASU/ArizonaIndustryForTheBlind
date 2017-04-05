@@ -15,7 +15,10 @@ namespace ArizonaIndustryForTheBlindPay
         PayPeriod payPeriod;
         ChooseName chooseName;
         HoursWorked hoursWorked;
+        ExcelFunctions excelFunctions;
 
+        string excelDirectory;
+   
         public PayRollForm()
         {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace ArizonaIndustryForTheBlindPay
             payPeriod = new PayPeriod();
             hoursWorked = new HoursWorked();
             chooseName = new ChooseName();
+            excelDirectory = "";
 
             namesListBox.SetSelected(0, true);
             payPeriodTextBox.Text = "0";
@@ -72,7 +76,15 @@ namespace ArizonaIndustryForTheBlindPay
 
         private void hoursWorkedOkButton_Click(object sender, EventArgs e)
         {
+            excelFunctions = new ExcelFunctions(excelDirectory);
 
+            int row = 5;
+            int col = 8;
+            int saveIndex = hoursWorked.getIndex();
+
+            excelFunctions.insertHour(hoursWorked.getWorkHoursArray(), excelDirectory);
+
+            //hoursWorked.setIndex(saveIndex);
         }
 
         private void typeOfWorkBackButton_Click(object sender, EventArgs e)
@@ -110,6 +122,17 @@ namespace ArizonaIndustryForTheBlindPay
             else
             {
                 MessageBox.Show("Please input a number for the hours worked");
+            }
+        }
+
+        private void chooseExcelButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                excelDirectory = openFileDialog1.FileName;
+                MessageBox.Show(excelDirectory);
             }
         }
     }

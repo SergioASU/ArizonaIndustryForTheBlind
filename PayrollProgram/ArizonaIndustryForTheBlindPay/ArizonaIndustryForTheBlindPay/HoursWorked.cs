@@ -57,5 +57,23 @@ namespace ArizonaIndustryForTheBlindPay
                 indexWork++;
             }
         }
+
+        public void setIndex(int index)
+        {
+            if(index >= 0 && index <= hoursWorkedArray.Length-1)
+            {
+                indexWork = index;
+            }
+        }
+
+        public int getIndex()
+        {
+            return indexWork;
+        }
+
+        public double[] getWorkHoursArray()
+        {
+            return hoursWorkedArray;
+        }
     }
 }

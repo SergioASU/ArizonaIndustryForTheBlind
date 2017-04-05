@@ -33,6 +33,8 @@
             this.payPeriodNextButton = new System.Windows.Forms.Button();
             this.namePanel = new System.Windows.Forms.Panel();
             this.hoursWorkedPanel = new System.Windows.Forms.Panel();
+            this.lblTotalHoursChange = new System.Windows.Forms.Label();
+            this.lblTotalHours = new System.Windows.Forms.Label();
             this.hoursWorkedOkButton = new System.Windows.Forms.Button();
             this.hoursWorkedBackButton = new System.Windows.Forms.Button();
             this.typeOfWorkBackButton = new System.Windows.Forms.Button();
@@ -42,8 +44,7 @@
             this.namePanelNextButton = new System.Windows.Forms.Button();
             this.namePanelBackButton = new System.Windows.Forms.Button();
             this.namesListBox = new System.Windows.Forms.ListBox();
-            this.lblTotalHours = new System.Windows.Forms.Label();
-            this.lblTotalHoursChange = new System.Windows.Forms.Label();
+            this.chooseExcelButton = new System.Windows.Forms.Button();
             this.namePanel.SuspendLayout();
             this.hoursWorkedPanel.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             // payPeriodNextButton
             // 
-            this.payPeriodNextButton.Location = new System.Drawing.Point(139, 180);
+            this.payPeriodNextButton.Location = new System.Drawing.Point(278, 180);
             this.payPeriodNextButton.Name = "payPeriodNextButton";
             this.payPeriodNextButton.Size = new System.Drawing.Size(92, 41);
             this.payPeriodNextButton.TabIndex = 2;
@@ -105,6 +106,26 @@
             this.hoursWorkedPanel.Size = new System.Drawing.Size(382, 233);
             this.hoursWorkedPanel.TabIndex = 3;
             this.hoursWorkedPanel.Visible = false;
+            // 
+            // lblTotalHoursChange
+            // 
+            this.lblTotalHoursChange.AutoSize = true;
+            this.lblTotalHoursChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalHoursChange.Location = new System.Drawing.Point(237, 144);
+            this.lblTotalHoursChange.Name = "lblTotalHoursChange";
+            this.lblTotalHoursChange.Size = new System.Drawing.Size(24, 25);
+            this.lblTotalHoursChange.TabIndex = 7;
+            this.lblTotalHoursChange.Text = "0";
+            // 
+            // lblTotalHours
+            // 
+            this.lblTotalHours.AutoSize = true;
+            this.lblTotalHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalHours.Location = new System.Drawing.Point(100, 144);
+            this.lblTotalHours.Name = "lblTotalHours";
+            this.lblTotalHours.Size = new System.Drawing.Size(131, 25);
+            this.lblTotalHours.TabIndex = 6;
+            this.lblTotalHours.Text = "Total Hours:";
             // 
             // hoursWorkedOkButton
             // 
@@ -158,7 +179,7 @@
             // 
             this.lblTypeOfWork.AutoSize = true;
             this.lblTypeOfWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeOfWork.Location = new System.Drawing.Point(115, 9);
+            this.lblTypeOfWork.Location = new System.Drawing.Point(7, 12);
             this.lblTypeOfWork.Name = "lblTypeOfWork";
             this.lblTypeOfWork.Size = new System.Drawing.Size(146, 25);
             this.lblTypeOfWork.TabIndex = 0;
@@ -200,31 +221,22 @@
             this.namesListBox.Size = new System.Drawing.Size(358, 129);
             this.namesListBox.TabIndex = 0;
             // 
-            // lblTotalHours
+            // chooseExcelButton
             // 
-            this.lblTotalHours.AutoSize = true;
-            this.lblTotalHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalHours.Location = new System.Drawing.Point(100, 144);
-            this.lblTotalHours.Name = "lblTotalHours";
-            this.lblTotalHours.Size = new System.Drawing.Size(131, 25);
-            this.lblTotalHours.TabIndex = 6;
-            this.lblTotalHours.Text = "Total Hours:";
-            // 
-            // lblTotalHoursChange
-            // 
-            this.lblTotalHoursChange.AutoSize = true;
-            this.lblTotalHoursChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalHoursChange.Location = new System.Drawing.Point(237, 144);
-            this.lblTotalHoursChange.Name = "lblTotalHoursChange";
-            this.lblTotalHoursChange.Size = new System.Drawing.Size(24, 25);
-            this.lblTotalHoursChange.TabIndex = 7;
-            this.lblTotalHoursChange.Text = "0";
+            this.chooseExcelButton.Location = new System.Drawing.Point(12, 180);
+            this.chooseExcelButton.Name = "chooseExcelButton";
+            this.chooseExcelButton.Size = new System.Drawing.Size(108, 41);
+            this.chooseExcelButton.TabIndex = 4;
+            this.chooseExcelButton.Text = "Choose Excel";
+            this.chooseExcelButton.UseVisualStyleBackColor = true;
+            this.chooseExcelButton.Click += new System.EventHandler(this.chooseExcelButton_Click);
             // 
             // PayRollForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 233);
+            this.Controls.Add(this.chooseExcelButton);
             this.Controls.Add(this.namePanel);
             this.Controls.Add(this.payPeriodNextButton);
             this.Controls.Add(this.payPeriodTextBox);
@@ -257,6 +269,7 @@
         private System.Windows.Forms.TextBox hoursWorkedTextBox;
         private System.Windows.Forms.Label lblTotalHoursChange;
         private System.Windows.Forms.Label lblTotalHours;
+        private System.Windows.Forms.Button chooseExcelButton;
     }
 }
 
