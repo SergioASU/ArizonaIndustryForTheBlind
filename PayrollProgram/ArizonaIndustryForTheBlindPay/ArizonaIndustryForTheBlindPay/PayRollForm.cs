@@ -17,11 +17,30 @@ namespace ArizonaIndustryForTheBlindPay
         HoursWorked hoursWorked;
         ExcelFunctions excelFunctions;
 
+        string[] daysArray;
+        string[] typesOfWorkArray;
+        int daysIndex;
+        int workIndex;
+
         string excelDirectory;
+
+        double totalHours = 0;
    
         public PayRollForm()
         {
             InitializeComponent();
+
+            daysArray = new string[] {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8", "Day 8", "Day 9",
+            "Day 10","Day 11","Day 12","Day 13","Day 14",};
+
+            typesOfWorkArray = new string[] {"Indirect", "Direct", "Annual Leave", "Sick Leave", "Family Sick Leave", "Overtime",
+            "Holiday With Pay", "Other", "Leave Without Pay"};
+
+            daysIndex = 0;
+            workIndex = 0;
+
+            lblTypeOfWork.Text = typesOfWorkArray[workIndex];
+            lblPeriodDay.Text = daysArray[daysIndex];
 
             payPeriod = new PayPeriod();
             hoursWorked = new HoursWorked();
@@ -76,52 +95,24 @@ namespace ArizonaIndustryForTheBlindPay
 
         private void hoursWorkedOkButton_Click(object sender, EventArgs e)
         {
-            excelFunctions = new ExcelFunctions(excelDirectory);
-
-            int row = 5;
-            int col = 8;
-            int saveIndex = hoursWorked.getIndex();
-
-            excelFunctions.insertHour(hoursWorked.getWorkHoursArray(), excelDirectory);
-
-            //hoursWorked.setIndex(saveIndex);
+            
         }
 
         private void typeOfWorkBackButton_Click(object sender, EventArgs e)
         {
-            double result;
-            if(Double.TryParse(hoursWorkedTextBox.Text, out result))
+            if (workIndex > 0)
             {
-                hoursWorked.saveHours(result);
-                hoursWorked.changeIndex(-1);
-
-                lblTypeOfWork.Text = hoursWorked.getCurrentTypeOfWork();
-                hoursWorkedTextBox.Text = hoursWorked.getCurrentHours().ToString();
-
-                lblTotalHoursChange.Text = hoursWorked.getTotalHours().ToString();
-            }
-            else
-            {
-                MessageBox.Show("Please input a number for the hours worked");
+                workIndex--;
+                lblTypeOfWork.Text = typesOfWorkArray[workIndex];
             }
         }
 
         private void typeOfWorkNextButton_Click(object sender, EventArgs e)
         {
-            double result;
-            if (Double.TryParse(hoursWorkedTextBox.Text, out result))
+            if (workIndex < typesOfWorkArray.Length - 1)
             {
-                hoursWorked.saveHours(result);
-                hoursWorked.changeIndex(1);
-
-                lblTypeOfWork.Text = hoursWorked.getCurrentTypeOfWork();
-                hoursWorkedTextBox.Text = hoursWorked.getCurrentHours().ToString();
-
-                lblTotalHoursChange.Text = hoursWorked.getTotalHours().ToString();
-            }
-            else
-            {
-                MessageBox.Show("Please input a number for the hours worked");
+                workIndex++;
+                lblTypeOfWork.Text = typesOfWorkArray[workIndex];
             }
         }
 
@@ -133,6 +124,35 @@ namespace ArizonaIndustryForTheBlindPay
             {
                 excelDirectory = openFileDialog1.FileName;
                 MessageBox.Show(excelDirectory);
+            }
+        }
+
+        private void dayButtonBack_Click(object sender, EventArgs e)
+        {
+            if (daysIndex > 0)
+            {
+                daysIndex--;
+                lblPeriodDay.Text = daysArray[daysIndex];
+            }
+        }
+
+        private void dayButtonNext_Click(object sender, EventArgs e)
+        {
+            if (daysIndex < daysArray.Length - 1)
+            {
+                daysIndex++;
+                lblPeriodDay.Text = daysArray[daysIndex];
+            }
+        }
+
+        private void setHoursButton_Click(object sender, EventArgs e)
+        {
+            double result;
+            if (Double.TryParse(hoursWorkedTextBox.Text, out result))
+            {
+                hoursWorked.setHours(chooseName.getName(), daysIndex, workIndex, result);
+                totalHours += result;
+                lblTotalHours.Text = totalHours.ToString();
             }
         }
     }

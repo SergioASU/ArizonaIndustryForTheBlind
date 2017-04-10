@@ -45,6 +45,10 @@
             this.namePanelBackButton = new System.Windows.Forms.Button();
             this.namesListBox = new System.Windows.Forms.ListBox();
             this.chooseExcelButton = new System.Windows.Forms.Button();
+            this.lblPeriodDay = new System.Windows.Forms.Label();
+            this.dayButtonBack = new System.Windows.Forms.Button();
+            this.dayButtonNext = new System.Windows.Forms.Button();
+            this.setHoursButton = new System.Windows.Forms.Button();
             this.namePanel.SuspendLayout();
             this.hoursWorkedPanel.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +96,10 @@
             // 
             // hoursWorkedPanel
             // 
+            this.hoursWorkedPanel.Controls.Add(this.setHoursButton);
+            this.hoursWorkedPanel.Controls.Add(this.dayButtonNext);
+            this.hoursWorkedPanel.Controls.Add(this.dayButtonBack);
+            this.hoursWorkedPanel.Controls.Add(this.lblPeriodDay);
             this.hoursWorkedPanel.Controls.Add(this.lblTotalHoursChange);
             this.hoursWorkedPanel.Controls.Add(this.lblTotalHours);
             this.hoursWorkedPanel.Controls.Add(this.hoursWorkedOkButton);
@@ -149,9 +157,9 @@
             // 
             // typeOfWorkBackButton
             // 
-            this.typeOfWorkBackButton.Location = new System.Drawing.Point(31, 89);
+            this.typeOfWorkBackButton.Location = new System.Drawing.Point(12, 32);
             this.typeOfWorkBackButton.Name = "typeOfWorkBackButton";
-            this.typeOfWorkBackButton.Size = new System.Drawing.Size(80, 34);
+            this.typeOfWorkBackButton.Size = new System.Drawing.Size(70, 23);
             this.typeOfWorkBackButton.TabIndex = 3;
             this.typeOfWorkBackButton.Text = "<<";
             this.typeOfWorkBackButton.UseVisualStyleBackColor = true;
@@ -159,9 +167,9 @@
             // 
             // typeOfWorkNextButton
             // 
-            this.typeOfWorkNextButton.Location = new System.Drawing.Point(271, 89);
+            this.typeOfWorkNextButton.Location = new System.Drawing.Point(88, 34);
             this.typeOfWorkNextButton.Name = "typeOfWorkNextButton";
-            this.typeOfWorkNextButton.Size = new System.Drawing.Size(80, 34);
+            this.typeOfWorkNextButton.Size = new System.Drawing.Size(71, 21);
             this.typeOfWorkNextButton.TabIndex = 2;
             this.typeOfWorkNextButton.Text = ">>";
             this.typeOfWorkNextButton.UseVisualStyleBackColor = true;
@@ -170,7 +178,7 @@
             // hoursWorkedTextBox
             // 
             this.hoursWorkedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hoursWorkedTextBox.Location = new System.Drawing.Point(139, 82);
+            this.hoursWorkedTextBox.Location = new System.Drawing.Point(141, 62);
             this.hoursWorkedTextBox.Name = "hoursWorkedTextBox";
             this.hoursWorkedTextBox.Size = new System.Drawing.Size(100, 38);
             this.hoursWorkedTextBox.TabIndex = 1;
@@ -178,10 +186,10 @@
             // lblTypeOfWork
             // 
             this.lblTypeOfWork.AutoSize = true;
-            this.lblTypeOfWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeOfWork.Location = new System.Drawing.Point(7, 12);
+            this.lblTypeOfWork.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeOfWork.Location = new System.Drawing.Point(14, 9);
             this.lblTypeOfWork.Name = "lblTypeOfWork";
-            this.lblTypeOfWork.Size = new System.Drawing.Size(146, 25);
+            this.lblTypeOfWork.Size = new System.Drawing.Size(129, 20);
             this.lblTypeOfWork.TabIndex = 0;
             this.lblTypeOfWork.Text = "Indirect Hours";
             // 
@@ -231,6 +239,46 @@
             this.chooseExcelButton.UseVisualStyleBackColor = true;
             this.chooseExcelButton.Click += new System.EventHandler(this.chooseExcelButton_Click);
             // 
+            // lblPeriodDay
+            // 
+            this.lblPeriodDay.AutoSize = true;
+            this.lblPeriodDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodDay.Location = new System.Drawing.Point(274, 9);
+            this.lblPeriodDay.Name = "lblPeriodDay";
+            this.lblPeriodDay.Size = new System.Drawing.Size(58, 20);
+            this.lblPeriodDay.TabIndex = 8;
+            this.lblPeriodDay.Text = "Day 1";
+            // 
+            // dayButtonBack
+            // 
+            this.dayButtonBack.Location = new System.Drawing.Point(226, 32);
+            this.dayButtonBack.Name = "dayButtonBack";
+            this.dayButtonBack.Size = new System.Drawing.Size(75, 23);
+            this.dayButtonBack.TabIndex = 9;
+            this.dayButtonBack.Text = "<<";
+            this.dayButtonBack.UseVisualStyleBackColor = true;
+            this.dayButtonBack.Click += new System.EventHandler(this.dayButtonBack_Click);
+            // 
+            // dayButtonNext
+            // 
+            this.dayButtonNext.Location = new System.Drawing.Point(307, 32);
+            this.dayButtonNext.Name = "dayButtonNext";
+            this.dayButtonNext.Size = new System.Drawing.Size(75, 23);
+            this.dayButtonNext.TabIndex = 10;
+            this.dayButtonNext.Text = ">>";
+            this.dayButtonNext.UseVisualStyleBackColor = true;
+            this.dayButtonNext.Click += new System.EventHandler(this.dayButtonNext_Click);
+            // 
+            // setHoursButton
+            // 
+            this.setHoursButton.Location = new System.Drawing.Point(136, 107);
+            this.setHoursButton.Name = "setHoursButton";
+            this.setHoursButton.Size = new System.Drawing.Size(105, 35);
+            this.setHoursButton.TabIndex = 11;
+            this.setHoursButton.Text = "Set Hour";
+            this.setHoursButton.UseVisualStyleBackColor = true;
+            this.setHoursButton.Click += new System.EventHandler(this.setHoursButton_Click);
+            // 
             // PayRollForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -270,6 +318,10 @@
         private System.Windows.Forms.Label lblTotalHoursChange;
         private System.Windows.Forms.Label lblTotalHours;
         private System.Windows.Forms.Button chooseExcelButton;
+        private System.Windows.Forms.Button dayButtonNext;
+        private System.Windows.Forms.Button dayButtonBack;
+        private System.Windows.Forms.Label lblPeriodDay;
+        private System.Windows.Forms.Button setHoursButton;
     }
 }
 
