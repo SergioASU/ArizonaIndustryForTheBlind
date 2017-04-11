@@ -33,7 +33,6 @@
             this.payPeriodNextButton = new System.Windows.Forms.Button();
             this.namePanel = new System.Windows.Forms.Panel();
             this.hoursWorkedPanel = new System.Windows.Forms.Panel();
-            this.setHoursButton = new System.Windows.Forms.Button();
             this.dayButtonNext = new System.Windows.Forms.Button();
             this.dayButtonBack = new System.Windows.Forms.Button();
             this.lblPeriodDay = new System.Windows.Forms.Label();
@@ -96,7 +95,6 @@
             // 
             // hoursWorkedPanel
             // 
-            this.hoursWorkedPanel.Controls.Add(this.setHoursButton);
             this.hoursWorkedPanel.Controls.Add(this.dayButtonNext);
             this.hoursWorkedPanel.Controls.Add(this.dayButtonBack);
             this.hoursWorkedPanel.Controls.Add(this.lblPeriodDay);
@@ -114,16 +112,6 @@
             this.hoursWorkedPanel.Size = new System.Drawing.Size(382, 233);
             this.hoursWorkedPanel.TabIndex = 3;
             this.hoursWorkedPanel.Visible = false;
-            // 
-            // setHoursButton
-            // 
-            this.setHoursButton.Location = new System.Drawing.Point(136, 107);
-            this.setHoursButton.Name = "setHoursButton";
-            this.setHoursButton.Size = new System.Drawing.Size(105, 35);
-            this.setHoursButton.TabIndex = 11;
-            this.setHoursButton.Text = "Set Hour";
-            this.setHoursButton.UseVisualStyleBackColor = true;
-            this.setHoursButton.Click += new System.EventHandler(this.setHoursButton_Click);
             // 
             // dayButtonNext
             // 
@@ -218,7 +206,7 @@
             // hoursWorkedTextBox
             // 
             this.hoursWorkedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hoursWorkedTextBox.Location = new System.Drawing.Point(141, 62);
+            this.hoursWorkedTextBox.Location = new System.Drawing.Point(143, 79);
             this.hoursWorkedTextBox.Name = "hoursWorkedTextBox";
             this.hoursWorkedTextBox.Size = new System.Drawing.Size(100, 38);
             this.hoursWorkedTextBox.TabIndex = 1;
@@ -320,7 +308,6 @@
         private System.Windows.Forms.Button dayButtonNext;
         private System.Windows.Forms.Button dayButtonBack;
         private System.Windows.Forms.Label lblPeriodDay;
-        private System.Windows.Forms.Button setHoursButton;
         private System.Windows.Forms.Button chooseExcelButton;
     }
 }

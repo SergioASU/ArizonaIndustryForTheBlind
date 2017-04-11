@@ -21,7 +21,7 @@ namespace ArizonaIndustryForTheBlindPay
     }
     class HoursWorked
     {
-        private static readonly int NUMBER_OF_DAYS = 14;
+        private static readonly int NUMBER_OF_DAYS = 12;
         private static readonly int NUMBER_OF_HOURS = 9;
         List<KeyValuePair<string, double[][]>> list;
         private string[] typeOfWork;
@@ -44,11 +44,11 @@ namespace ArizonaIndustryForTheBlindPay
 
             for (int i = 0; i < 9; i++)
             {
-                name1Work[i] = new double[] {0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0 };
-                name2Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name3Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name4Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name5Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name1Work[i] = new double[] {0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0 };
+                name2Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name3Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name4Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name5Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             }
             list = new List<KeyValuePair<string, double[][]>>()
             {
@@ -105,6 +105,20 @@ namespace ArizonaIndustryForTheBlindPay
             }
 
             return null;
+        }
+
+        public double getHour(string name, int hour, int day)
+        {
+            double hourReturn = 0;
+            for(int i = 0; i < list.Count; i++)
+            {
+                if(list.ElementAt(i).Key.Equals(name))
+                {
+                    hourReturn = list.ElementAt(i).Value[hour][day];
+                }
+            }
+
+            return hourReturn;
         }
     }
 }

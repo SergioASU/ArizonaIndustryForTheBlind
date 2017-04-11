@@ -40,6 +40,20 @@ namespace ArizonaIndustryForTheBlindPay
                 row++;
             }
 
+            row = 16;
+            col = 8;
+
+            for(int i = 0; i < 9; i++)
+            {
+                for(int j = 6; j < 12; j++)
+                {
+                    x.Cells[row, col] = hours[i][j].ToString();
+                    col++;
+                }
+                col = 8;
+                row++;
+            }
+
             sheet.Save();
             sheet.Close(true, fileName, Type.Missing);
             excel.Quit();
