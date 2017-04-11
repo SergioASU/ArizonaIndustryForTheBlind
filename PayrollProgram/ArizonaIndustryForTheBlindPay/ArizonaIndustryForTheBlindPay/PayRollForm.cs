@@ -13,7 +13,6 @@ namespace ArizonaIndustryForTheBlindPay
     public partial class PayRollForm : Form
     {
         PayPeriod payPeriod;
-        ChooseName chooseName;
         HoursWorked hoursWorked;
         ExcelFunctions excelFunctions;
 
@@ -21,6 +20,7 @@ namespace ArizonaIndustryForTheBlindPay
         string[] typesOfWorkArray;
         int daysIndex;
         int workIndex;
+        string currentName;
 
         string excelDirectory;
 
@@ -44,10 +44,11 @@ namespace ArizonaIndustryForTheBlindPay
 
             payPeriod = new PayPeriod();
             hoursWorked = new HoursWorked();
-            chooseName = new ChooseName();
+            
             excelDirectory = "";
 
             namesListBox.SetSelected(0, true);
+            currentName = namesListBox.SelectedItem.ToString();
             payPeriodTextBox.Text = "0";
             hoursWorkedTextBox.Text = "0";
 
@@ -62,7 +63,7 @@ namespace ArizonaIndustryForTheBlindPay
             if (Int32.TryParse(payPeriodTextBox.Text, out result))
             {
                 payPeriod.savePayPeriod(result);
-                System.Windows.Forms.MessageBox.Show(payPeriod.getPayPeriod().ToString());
+                //System.Windows.Forms.MessageBox.Show(payPeriod.getPayPeriod().ToString());
             }
             else
             {
@@ -73,19 +74,19 @@ namespace ArizonaIndustryForTheBlindPay
         private void namePanelBackButton_Click(object sender, EventArgs e)
         {
             namePanel.Visible = false;
+            currentName = namesListBox.SelectedItem.ToString();
+            
 
-            chooseName.saveName(namesListBox.SelectedItem.ToString());
-
-            System.Windows.Forms.MessageBox.Show(chooseName.getName());
+            //System.Windows.Forms.MessageBox.Show(currentName);
         }
 
         private void namePanelNextButton_Click(object sender, EventArgs e)
         {
             hoursWorkedPanel.Visible = true;
 
-            chooseName.saveName(namesListBox.SelectedItem.ToString());
+            currentName = namesListBox.SelectedItem.ToString();
 
-            System.Windows.Forms.MessageBox.Show(chooseName.getName());
+           // System.Windows.Forms.MessageBox.Show(currentName);
         }
 
         private void hoursWorkedBackButton_Click(object sender, EventArgs e)
@@ -95,7 +96,7 @@ namespace ArizonaIndustryForTheBlindPay
 
         private void hoursWorkedOkButton_Click(object sender, EventArgs e)
         {
-            
+            excelFunctions.insertHour(hoursWorked.getHoursWorked(currentName), excelDirectory);
         }
 
         private void typeOfWorkBackButton_Click(object sender, EventArgs e)
@@ -113,17 +114,6 @@ namespace ArizonaIndustryForTheBlindPay
             {
                 workIndex++;
                 lblTypeOfWork.Text = typesOfWorkArray[workIndex];
-            }
-        }
-
-        private void chooseExcelButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                excelDirectory = openFileDialog1.FileName;
-                MessageBox.Show(excelDirectory);
             }
         }
 
@@ -150,9 +140,21 @@ namespace ArizonaIndustryForTheBlindPay
             double result;
             if (Double.TryParse(hoursWorkedTextBox.Text, out result))
             {
-                hoursWorked.setHours(chooseName.getName(), daysIndex, workIndex, result);
-                totalHours += result;
-                lblTotalHours.Text = totalHours.ToString();
+                hoursWorked.setHours(currentName, daysIndex, workIndex, result);
+
+                lblTotalHoursChange.Text = hoursWorked.getTotalHours(currentName).ToString();
+            }
+        }
+
+        private void chooseExcelButton_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                excelDirectory = openFileDialog1.FileName;
+                excelFunctions = new ExcelFunctions(excelDirectory);
+                //MessageBox.Show(excelDirectory);
             }
         }
     }

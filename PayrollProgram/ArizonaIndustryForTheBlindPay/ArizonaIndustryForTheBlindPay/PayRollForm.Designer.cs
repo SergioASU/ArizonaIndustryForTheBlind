@@ -33,6 +33,10 @@
             this.payPeriodNextButton = new System.Windows.Forms.Button();
             this.namePanel = new System.Windows.Forms.Panel();
             this.hoursWorkedPanel = new System.Windows.Forms.Panel();
+            this.setHoursButton = new System.Windows.Forms.Button();
+            this.dayButtonNext = new System.Windows.Forms.Button();
+            this.dayButtonBack = new System.Windows.Forms.Button();
+            this.lblPeriodDay = new System.Windows.Forms.Label();
             this.lblTotalHoursChange = new System.Windows.Forms.Label();
             this.lblTotalHours = new System.Windows.Forms.Label();
             this.hoursWorkedOkButton = new System.Windows.Forms.Button();
@@ -45,10 +49,6 @@
             this.namePanelBackButton = new System.Windows.Forms.Button();
             this.namesListBox = new System.Windows.Forms.ListBox();
             this.chooseExcelButton = new System.Windows.Forms.Button();
-            this.lblPeriodDay = new System.Windows.Forms.Label();
-            this.dayButtonBack = new System.Windows.Forms.Button();
-            this.dayButtonNext = new System.Windows.Forms.Button();
-            this.setHoursButton = new System.Windows.Forms.Button();
             this.namePanel.SuspendLayout();
             this.hoursWorkedPanel.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,46 @@
             this.hoursWorkedPanel.Size = new System.Drawing.Size(382, 233);
             this.hoursWorkedPanel.TabIndex = 3;
             this.hoursWorkedPanel.Visible = false;
+            // 
+            // setHoursButton
+            // 
+            this.setHoursButton.Location = new System.Drawing.Point(136, 107);
+            this.setHoursButton.Name = "setHoursButton";
+            this.setHoursButton.Size = new System.Drawing.Size(105, 35);
+            this.setHoursButton.TabIndex = 11;
+            this.setHoursButton.Text = "Set Hour";
+            this.setHoursButton.UseVisualStyleBackColor = true;
+            this.setHoursButton.Click += new System.EventHandler(this.setHoursButton_Click);
+            // 
+            // dayButtonNext
+            // 
+            this.dayButtonNext.Location = new System.Drawing.Point(307, 32);
+            this.dayButtonNext.Name = "dayButtonNext";
+            this.dayButtonNext.Size = new System.Drawing.Size(75, 23);
+            this.dayButtonNext.TabIndex = 10;
+            this.dayButtonNext.Text = ">>";
+            this.dayButtonNext.UseVisualStyleBackColor = true;
+            this.dayButtonNext.Click += new System.EventHandler(this.dayButtonNext_Click);
+            // 
+            // dayButtonBack
+            // 
+            this.dayButtonBack.Location = new System.Drawing.Point(226, 32);
+            this.dayButtonBack.Name = "dayButtonBack";
+            this.dayButtonBack.Size = new System.Drawing.Size(75, 23);
+            this.dayButtonBack.TabIndex = 9;
+            this.dayButtonBack.Text = "<<";
+            this.dayButtonBack.UseVisualStyleBackColor = true;
+            this.dayButtonBack.Click += new System.EventHandler(this.dayButtonBack_Click);
+            // 
+            // lblPeriodDay
+            // 
+            this.lblPeriodDay.AutoSize = true;
+            this.lblPeriodDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodDay.Location = new System.Drawing.Point(274, 9);
+            this.lblPeriodDay.Name = "lblPeriodDay";
+            this.lblPeriodDay.Size = new System.Drawing.Size(58, 20);
+            this.lblPeriodDay.TabIndex = 8;
+            this.lblPeriodDay.Text = "Day 1";
             // 
             // lblTotalHoursChange
             // 
@@ -234,61 +274,21 @@
             this.chooseExcelButton.Location = new System.Drawing.Point(12, 180);
             this.chooseExcelButton.Name = "chooseExcelButton";
             this.chooseExcelButton.Size = new System.Drawing.Size(108, 41);
-            this.chooseExcelButton.TabIndex = 4;
+            this.chooseExcelButton.TabIndex = 5;
             this.chooseExcelButton.Text = "Choose Excel";
             this.chooseExcelButton.UseVisualStyleBackColor = true;
-            this.chooseExcelButton.Click += new System.EventHandler(this.chooseExcelButton_Click);
-            // 
-            // lblPeriodDay
-            // 
-            this.lblPeriodDay.AutoSize = true;
-            this.lblPeriodDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeriodDay.Location = new System.Drawing.Point(274, 9);
-            this.lblPeriodDay.Name = "lblPeriodDay";
-            this.lblPeriodDay.Size = new System.Drawing.Size(58, 20);
-            this.lblPeriodDay.TabIndex = 8;
-            this.lblPeriodDay.Text = "Day 1";
-            // 
-            // dayButtonBack
-            // 
-            this.dayButtonBack.Location = new System.Drawing.Point(226, 32);
-            this.dayButtonBack.Name = "dayButtonBack";
-            this.dayButtonBack.Size = new System.Drawing.Size(75, 23);
-            this.dayButtonBack.TabIndex = 9;
-            this.dayButtonBack.Text = "<<";
-            this.dayButtonBack.UseVisualStyleBackColor = true;
-            this.dayButtonBack.Click += new System.EventHandler(this.dayButtonBack_Click);
-            // 
-            // dayButtonNext
-            // 
-            this.dayButtonNext.Location = new System.Drawing.Point(307, 32);
-            this.dayButtonNext.Name = "dayButtonNext";
-            this.dayButtonNext.Size = new System.Drawing.Size(75, 23);
-            this.dayButtonNext.TabIndex = 10;
-            this.dayButtonNext.Text = ">>";
-            this.dayButtonNext.UseVisualStyleBackColor = true;
-            this.dayButtonNext.Click += new System.EventHandler(this.dayButtonNext_Click);
-            // 
-            // setHoursButton
-            // 
-            this.setHoursButton.Location = new System.Drawing.Point(136, 107);
-            this.setHoursButton.Name = "setHoursButton";
-            this.setHoursButton.Size = new System.Drawing.Size(105, 35);
-            this.setHoursButton.TabIndex = 11;
-            this.setHoursButton.Text = "Set Hour";
-            this.setHoursButton.UseVisualStyleBackColor = true;
-            this.setHoursButton.Click += new System.EventHandler(this.setHoursButton_Click);
+            this.chooseExcelButton.Click += new System.EventHandler(this.chooseExcelButton_Click_1);
             // 
             // PayRollForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 233);
-            this.Controls.Add(this.chooseExcelButton);
             this.Controls.Add(this.namePanel);
             this.Controls.Add(this.payPeriodNextButton);
             this.Controls.Add(this.payPeriodTextBox);
             this.Controls.Add(this.lblPayPeriod);
+            this.Controls.Add(this.chooseExcelButton);
             this.Name = "PayRollForm";
             this.Text = "Arizona Industry For The Blind";
             this.namePanel.ResumeLayout(false);
@@ -317,11 +317,11 @@
         private System.Windows.Forms.TextBox hoursWorkedTextBox;
         private System.Windows.Forms.Label lblTotalHoursChange;
         private System.Windows.Forms.Label lblTotalHours;
-        private System.Windows.Forms.Button chooseExcelButton;
         private System.Windows.Forms.Button dayButtonNext;
         private System.Windows.Forms.Button dayButtonBack;
         private System.Windows.Forms.Label lblPeriodDay;
         private System.Windows.Forms.Button setHoursButton;
+        private System.Windows.Forms.Button chooseExcelButton;
     }
 }
 

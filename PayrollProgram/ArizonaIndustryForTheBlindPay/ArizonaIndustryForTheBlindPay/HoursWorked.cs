@@ -44,11 +44,11 @@ namespace ArizonaIndustryForTheBlindPay
 
             for (int i = 0; i < 9; i++)
             {
-                name1Work[i] = new double[] {0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name2Work[i] = new double[] {0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name3Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name4Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                name5Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name1Work[i] = new double[] {0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0 };
+                name2Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name3Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name4Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                name5Work[i] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             }
             list = new List<KeyValuePair<string, double[][]>>()
             {
@@ -67,9 +67,44 @@ namespace ArizonaIndustryForTheBlindPay
                 if(list.ElementAt(i).Key.Equals(name))
                 {
                     list.ElementAt(i).Value[typeOfWork][day] = amountOfHours;
-                    MessageBox.Show(list.ElementAt(i).Key.ToString() + ": " + typeOfWork + " " + day + " " + list.ElementAt(i).Value[typeOfWork][day].ToString());
+                    //MessageBox.Show(list.ElementAt(i).Key.ToString() + ": " + typeOfWork + " " + day + " " + list.ElementAt(i).Value[typeOfWork][day].ToString());
                 }
             }
+        }
+
+        public double getTotalHours(string name)
+        {
+            double totalHours = 0;
+
+            for(int i = 0; i < list.Count; i++)
+            {
+                if(list.ElementAt(i).Key.Equals(name))
+                {
+                    for(int j = 0; j < NUMBER_OF_HOURS; j++)
+                    {
+                        for(int k = 0; k < NUMBER_OF_DAYS; k++)
+                        {
+                            totalHours += list.ElementAt(i).Value[j][k];
+                        }
+                    }
+                }
+            }
+
+            return totalHours;
+        }
+
+        public double[][] getHoursWorked(string name)
+        {
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list.ElementAt(i).Key.Equals(name))
+                {
+                    return list.ElementAt(i).Value;
+                }
+            }
+
+            return null;
         }
     }
 }
