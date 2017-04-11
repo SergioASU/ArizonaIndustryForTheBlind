@@ -22,13 +22,8 @@ namespace ArizonaIndustryForTheBlindPay
 
             Microsoft.Office.Interop.Excel.Range userRange = x.UsedRange;
 
-            int row = 5;
-            int col = 8;
-            for (int i = 0; i < hours.Length; i++)
-            {
-                x.Cells[row, col] = hours[i];
-                row++;
-            }
+            /*Saving into excel
+             */
 
             sheet.Close(true, fileName, Type.Missing);
             excel.Quit();
